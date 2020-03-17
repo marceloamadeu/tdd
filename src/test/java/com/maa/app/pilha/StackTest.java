@@ -4,8 +4,11 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.maa.app.pilha.exception.EmptyStackException;
 
 class StackTest {
 	
@@ -44,9 +47,19 @@ class StackTest {
 		assertEquals("Second", unstack);
 	}
 	
-	@Test(expected=EmptyStackException.class )
+	@Test
 	void removeFromStack() {
-		stack.unstack();
+		Assertions.assertThrows(EmptyStackException.class, () -> {
+			stack.unstack();
+	    });
+	}
+	
+	
+	@Test
+	void addToFullStack() {
+		Assertions.assertThrows(FullStackException.class, () -> {
+			stack.unstack();
+	    });
 	}
 	
 

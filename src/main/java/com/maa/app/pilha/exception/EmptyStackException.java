@@ -1,11 +1,10 @@
-package com.maa.app.pilha;
+package com.maa.app.pilha.exception;
 
 public class EmptyStackException extends RuntimeException {
 
-	private static final long serialVersionUID = 1L;
-
 	public EmptyStackException(String message) {
 		super(message);
+		// TODO Auto-generated constructor stub
 	}
 
 }
